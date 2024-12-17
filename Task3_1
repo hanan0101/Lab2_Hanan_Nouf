@@ -1,0 +1,24 @@
+    .text
+main:
+    li x5, 3              # Load immediate value 6 into register x5 (example number)
+
+    srli x10, x5, 1        # Shift right logical by 1, result in x10 (divide by 2)
+    slli x11, x10, 1       # Shift left logical x10 by 1, result in x11 (multiply by 2)
+
+    beq x11, x5, even     # If shifted back to original number, it's even
+
+    # If we reach here, the number is odd
+    li x10, 1             # Load immediate 1 into x10 (odd)
+    j end                 # Jump to end
+
+even:
+    li x10, 0             # Load immediate 0 into x10 (even)
+
+end:
+    # Print the result using a system call
+    li a0, 1              # Set a0 to 1 (syscall for print integer)
+    ecall                 # Make system call to print the value in x10
+
+    # Exit the program
+    li a7, 10             # Set a7 to 10 (syscall for exit)
+    ecall                 # Make system call to exit the program
