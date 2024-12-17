@@ -1,0 +1,7 @@
+.text
+main: 
+
+li x10 1
+slli x10  x10 1 # sfit to lfet by 1 0010 
+li x5 6  # in case I want change the secand bet from left side 0110 
+xor x5 x5 x10 # it will change the secand bit of reg x5  
