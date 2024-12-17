@@ -1,0 +1,14 @@
+li x5, -1         
+    li x6, -5        
+    li x10, 0         
+
+    sub x4, x5, x6    #  (x4 = x5 - x6)
+    bge x4, x0, greater_or_equal  # If x4 >= 0
+
+    li x10, 0         # If x5 < x6, set x10 to 0
+    j end           
+
+greater_or_equal:
+    li x10, 1         # If x5 > x6
+
+end:
